@@ -394,10 +394,40 @@
       .brand-title { font-size: 20px; }
     }
   
-.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.gallery-grid img{width:100%;height:180px;object-fit:cover;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.12);transition:.2s}
-.gallery-grid img:hover{transform:scale(1.02)}
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
 
+.gallery-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.12);
+    transition: transform 0.3s ease;
+}
+
+.gallery-grid img.featured {
+    grid-column: span 2;
+    height: 380px;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.03);
+}
+   @media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid img.featured {
+        grid-column: span 1;
+        height: 300px;
+    }
+}
+    
 </style>
 </head>
 <body>
@@ -549,19 +579,28 @@
     
 <section id="gallery">
 <div class="container">
-<div class="section-title"><h2>Gallery</h2><p>Highlights from JP Consulting's business activities and partnerships.</p></div>
-<div class="gallery-grid">
-<img src="gallery/._JPCWEBP1.png" alt="JP Consulting photo">
-<img src="gallery/._JPCWEBP2.png" alt="JP Consulting photo">
-<img src="gallery/._JPCWEBP3.png" alt="JP Consulting photo">
-<img src="gallery/._JPCWEBP4.png" alt="JP Consulting photo">
-<img src="gallery/._JPCWEBP5.png" alt="JP Consulting photo">
-<img src="gallery/._JPCWEBP6.png" alt="JP Consulting photo">
-<img src="gallery/._JPCWEBP7.png" alt="JP Consulting photo">
-<img src="gallery/JPCWEBP1.png" alt="JP Consulting photo">
-<img src="gallery/JPCWEBP2.png" alt="JP Consulting photo">
-</div></div></section>
+<div class="section-title">
+<h2>Gallery</h2>
+<p>Highlights from JP Consulting's business activities and partnerships.</p>
+</div>
 
+<div class="gallery-grid">
+
+<img class="featured" src="gallery/JPCWEBP1.png" alt="JP Consulting photo">
+<img src="gallery/JPCWEBP2.png" alt="JP Consulting photo">
+<img src="gallery/JPCWEBP3.png" alt="JP Consulting photo">
+
+<img class="featured" src="gallery/JPCWEBP4.png" alt="JP Consulting photo">
+<img src="gallery/JPCWEBP5.png" alt="JP Consulting photo">
+<img src="gallery/JPCWEBP6.png" alt="JP Consulting photo">
+
+<img src="gallery/JPCWEBP7.png" alt="JP Consulting photo">
+<img class="featured" src="gallery/._JPCWEBP1.png" alt="JP Consulting photo">
+<img src="gallery/._JPCWEBP2.png" alt="JP Consulting photo">
+
+</div>
+</div>
+</section>
 <section id="contact" class="cta">
       <div class="container">
         <h2>Start Your New Zealand Market Journey</h2>
