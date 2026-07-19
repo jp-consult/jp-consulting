@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JP Consulting Group Ltd | Global Business Consulting</title>
+  <style>
+    :root {
+      --navy: #10233f;
+      --deep-navy: #071426;
+      --purple: #7569b3;
+      --gold: #c8a95a;
+      --silver: #eef1f6;
+      --text: #263142;
+      --muted: #667085;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: #ffffff;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .topbar {
+      background: var(--deep-navy);
+      color: #dce3ef;
+      font-size: 13px;
+      padding: 8px 7%;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid #e6e8ef;
+      backdrop-filter: blur(8px);
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand img {
+      width: 86px;
+      height: auto;
+      display: block;
+    }
+
+    .brand-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      color: var(--navy);
+      letter-spacing: 0.2px;
+      line-height: 1.1;
+    }
+
+    .brand-subtitle {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      margin-top: 3px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: var(--deep-navy);
+      font-weight: 700;
+      font-size: 14px;
+      border: 1px solid var(--gold);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,0.6);
+    }
+
+    .hero {
+      min-height: 630px;
+      background:
+        linear-gradient(120deg, rgba(7,20,38,0.95), rgba(16,35,63,0.82)),
+        radial-gradient(circle at 80% 20%, rgba(117,105,179,0.45), transparent 32%),
+        linear-gradient(135deg, #10233f, #7569b3);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      padding: 80px 7%;
+    }
+
+    .hero-inner {
+      max-width: 1180px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 2.4px;
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 74px);
+      line-height: 1.02;
+      margin: 0 0 24px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+    }
+
+    .hero p {
+      font-size: 19px;
+      max-width: 650px;
+      color: #e6ebf4;
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 28px;
+      padding: 34px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+    }
+
+    .hero-card img {
+      width: 100%;
+      max-width: 330px;
+      display: block;
+      margin: 0 auto 24px;
+      background: white;
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .hero-card h3 {
+      color: var(--gold);
+      margin: 0 0 12px;
+      font-size: 19px;
+    }
+
+    .hero-card p {
+      font-size: 15px;
+      margin: 0;
+      color: #e8edf7;
+    }
+
+    section {
+      padding: 88px 7%;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: auto;
+    }
+
+    .section-title {
+      max-width: 760px;
+      margin-bottom: 42px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      color: var(--navy);
+      margin: 0 0 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      font-size: 17px;
+      margin: 0;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid #e6e8ef;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 14px 36px rgba(16,35,63,0.06);
+    }
+
+    .card h3 {
+      color: var(--navy);
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .about {
+      background: #f8f9fc;
+    }
+
+    .about-wrap {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .stat-box {
+      background: var(--navy);
+      color: white;
+      border-radius: 26px;
+      padding: 36px;
+    }
+
+    .stat {
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .stat:last-child { border-bottom: 0; }
+
+    .stat strong {
+      display: block;
+      color: var(--gold);
+      font-size: 30px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .industries {
+      background: var(--deep-navy);
+      color: white;
+    }
+
+    .industries .section-title h2 { color: white; }
+    .industries .section-title p { color: #cbd5e4; }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .pill {
+      border: 1px solid rgba(255,255,255,0.20);
+      color: #e7edf7;
+      border-radius: 999px;
+      padding: 12px 18px;
+      background: rgba(255,255,255,0.06);
+      font-weight: 600;
+    }
+
+    .process {
+      background: #ffffff;
+    }
+
+    .steps {
+      counter-reset: step;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      border-left: 3px solid var(--gold);
+      background: #f8f9fc;
+      padding: 26px;
+      border-radius: 18px;
+    }
+
+    .step:before {
+      counter-increment: step;
+      content: "0" counter(step);
+      display: block;
+      color: var(--gold);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .cta {
+      background:
+        linear-gradient(120deg, rgba(16,35,63,0.96), rgba(117,105,179,0.9));
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 42px;
+      font-weight: 500;
+      margin: 0 0 16px;
+    }
+
+    .cta p {
+      max-width: 760px;
+      margin: 0 auto 28px;
+      color: #e7edf7;
+      font-size: 18px;
+    }
+
+    footer {
+      background: var(--deep-navy);
+      color: #cbd5e4;
+      padding: 36px 7%;
+    }
+
+    .footer-inner {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-brand img {
+      width: 70px;
+      background: white;
+      border-radius: 12px;
+      padding: 8px;
+    }
+
+    @media (max-width: 900px) {
+      nav ul { display: none; }
+      .hero-inner, .about-wrap, .grid-3, .steps {
+        grid-template-columns: 1fr;
+      }
+      .hero { padding-top: 60px; }
+      .topbar { display: none; }
+      .brand-title { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <span>JP Consulting Group Ltd · Auckland, New Zealand</span>
+    <span>Global Business Consulting · New Zealand · Asia-Pacific</span>
+  </div>
+
+  <header>
+    <div class="nav">
+      <a class="brand" href="#home">
+        <img src="JPLogo.png" alt="JP Consulting Group Ltd logo">
+        <div>
+          <div class="brand-title">JP Consulting Group Ltd</div>
+          <div class="brand-subtitle">Global Business Consulting</div>
+        </div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="#network">Global Network</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="btn" href="#contact">Contact Us</a>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">New Zealand · Korea · Asia-Pacific</div>
+          <h1>Connecting Business Across Borders</h1>
+          <p>
+            JP Consulting Group Ltd supports companies entering and expanding into
+            New Zealand and the Asia-Pacific region through market-entry strategy,
+            business matching, localisation, and partnership development.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#services">Explore Services</a>
+            <a class="btn secondary" href="#contact">Start a Project</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img src="JPLogo.png" alt="JP logo">
+          <h3>Practical. Connected. Execution-Focused.</h3>
+          <p>
+            We combine local New Zealand market knowledge with Korean and Asia-Pacific
+            business networks to help clients move from market interest to real
+            business opportunities.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container about-wrap">
+        <div class="stat-box">
+          <div class="stat"><strong>1995</strong>Founded through cross-border education collaboration</div>
+          <div class="stat"><strong>2008</strong>Expanded institutional operations through Edu-Kingdom College</div>
+          <div class="stat"><strong>2019</strong>Rebranded and expanded as JP Consulting</div>
+        </div>
+        <div>
+          <div class="section-title">
+            <h2>About JP Consulting</h2>
+            <p>
+              JP Consulting Group Ltd is a New Zealand-based consulting company
+              supporting international business development, education-sector advisory,
+              and cross-border partnerships.
+            </p>
+          </div>
+          <p>
+            Built on a foundation of international education, institutional management,
+            and business networks, JP Consulting provides practical advisory support
+            for organisations seeking to enter, test, and grow in the New Zealand
+            and Asia-Pacific markets.
+          </p>
+          <p>
+            Our work focuses on feasibility review, buyer development, business matching,
+            localisation strategy, and project execution for companies looking for
+            sustainable market expansion.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Services</h2>
+          <p>
+            Consulting support designed for companies that need local insight,
+            trusted connections, and practical execution.
+          </p>
+        </div>
+        <div class="grid-3">
+          <div class="card"><h3>Market Entry Strategy</h3><p>Feasibility review, market positioning, competitive analysis, and go-to-market planning for New Zealand and Asia-Pacific expansion.</p></div>
+          <div class="card"><h3>Business Matching</h3><p>Buyer identification, distributor development, B2B meeting coordination, and partnership introductions.</p></div>
+          <div class="card"><h3>Localisation Advisory</h3><p>Support for product positioning, pricing, messaging, cultural adaptation, and local business practices.</p></div>
+          <div class="card"><h3>Trade & Investment Advisory</h3><p>Guidance for trade projects, market testing, product feedback, and commercial opportunity development.</p></div>
+          <div class="card"><h3>Education Partnerships</h3><p>Institutional collaboration, education project design, training initiatives, and international programme advisory.</p></div>
+          <div class="card"><h3>Project Execution</h3><p>Hands-on support from initial market review through partner engagement, meeting follow-up, and implementation.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="industries" class="industries">
+      <div class="container">
+        <div class="section-title">
+          <h2>Industries We Support</h2>
+          <p>
+            JP Consulting works across sectors where cross-border market access,
+            trusted networks, and localisation are critical.
+          </p>
+        </div>
+        <div class="pill-list">
+          <span class="pill">Cosmetics & Beauty</span>
+          <span class="pill">Health & Wellness Products</span>
+          <span class="pill">Consumer Goods</span>
+          <span class="pill">Education & Training</span>
+          <span class="pill">Trade Services</span>
+          <span class="pill">New Zealand Market Entry</span>
+          <span class="pill">Korea & Asia-Pacific Partnerships</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="network" class="process">
+      <div class="container">
+        <div class="section-title">
+          <h2>How We Work</h2>
+          <p>
+            A clear advisory process that connects strategy with action.
+          </p>
+        </div>
+        <div class="steps">
+          <div class="step"><h3>Market Review</h3><p>Assess product, service, target segment, competition, and market readiness.</p></div>
+          <div class="step"><h3>Entry Strategy</h3><p>Define positioning, priority channels, buyer profile, and localisation requirements.</p></div>
+          <div class="step"><h3>Partner Development</h3><p>Identify buyers, distributors, partners, and relevant business networks.</p></div>
+          <div class="step"><h3>Execution Support</h3><p>Coordinate meetings, follow-up, feedback, and practical next steps.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="cta">
+      <div class="container">
+        <h2>Start Your New Zealand Market Journey</h2>
+        <p>
+          For business consulting, market-entry support, B2B matching, or
+          partnership development across New Zealand and the Asia-Pacific region,
+          contact JP Consulting Group Ltd.
+        </p>
+        <a class="btn" href="mailto:jessica@jpconsult.co.nz">Contact JP Consulting</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="JPLogo.png" alt="JP logo">
+        <div>
+          <strong>JP Consulting Group Ltd</strong><br>
+          Global Business Consulting · Auckland, New Zealand
+        </div>
+      </div>
+      <div>© JP Consulting Group Ltd. All rights reserved.</div>
+    </div>
+  </footer>
+
+</body>
+</html>
